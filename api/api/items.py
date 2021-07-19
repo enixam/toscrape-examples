@@ -21,6 +21,7 @@ class BookItem(scrapy.Item):
 
 
 class BookLoader(ItemLoader):
+    default_output_processor = TakeFirst()
     title_in = MapCompose(str.title)
     title_out = TakeFirst()
     author_in = SelectAuthor
